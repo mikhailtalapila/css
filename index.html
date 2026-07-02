@@ -7,65 +7,33 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="main-container">test</div>
-    <div class="additional-container">test2</div>
-    <div class="additional-container-2">test2</div>
-    <div class="card">test2</div>
+    <main class="parent">
+      <div class="child group1">
+        <div class="grand-child group1">test</div>
+      </div>
+      <div class="child group2">
+        <div class="grand-child group2">test3</div>
+      </div>
+      <div class="child group3">
+        test6
+        <div class="grand-child group3">test2</div>
+      </div>
+    </main>
+    <ul id="summer-drinks">
+      <li class="favorite">Whiskey and Ginger Ale</li>
+      <li>Wheat Beer</li>
+      <li>Mint Julip</li>
+    </ul>
+    <h2>test heading 1</h2>
+    <h3>test43 heading</h3>
+    <form action="url_of_form">
+      <label for="FirstField">First field (enabled):</label>
+      <input type="text" id="FirstField" value="Lorem" /><br />
 
-    <div>
-      <code>visible</code>
-      <p class="visible">
-        Maya Angelou: "I've learned that people will forget what you said,
-        people will forget what you did, but people will never forget how you
-        made them feel."
-      </p>
-    </div>
+      <label for="SecondField">Second field (disabled):</label>
+      <input type="text" id="SecondField" value="Ipsum" disabled /><br />
 
-    <div>
-      <code>hidden</code>
-      <p class="hidden">
-        Maya Angelou: "I've learned that people will forget what you said,
-        people will forget what you did, but people will never forget how you
-        made them feel."
-      </p>
-    </div>
-
-    <div>
-      <code>clip</code>
-      <p class="clip">
-        Maya Angelou: "I've learned that people will forget what you said,
-        people will forget what you did, but people will never forget how you
-        made them feel."
-      </p>
-    </div>
-
-    <div>
-      <code>scroll</code>
-      <p class="scroll">
-        Maya Angelou: "I've learned that people will forget what you said,
-        people will forget what you did, but people will never forget how you
-        made them feel."
-      </p>
-    </div>
-
-    <div>
-      <code>auto</code>
-      <p class="auto">
-        Maya Angelou: "I've learned that people will forget what you said,
-        people will forget what you did, but people will never forget how you
-        made them feel."
-      </p>
-    </div>
-
-    <div>
-      <code>overlay</code>
-      <p class="overlay">
-        Maya Angelou: "I've learned that people will forget what you said,
-        people will forget what you did, but people will never forget how you
-        made them feel."
-      </p>
-      <div class="light">You can barely see this.</div>
-<div class="medium">This is easier to see.</div>
-<div class="heavy"  >This is very easy to see.</div>
+      <input type="button" disabled value="Submit" />
+    </form>
   </body>
 </html>
