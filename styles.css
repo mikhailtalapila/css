@@ -1,5 +1,5 @@
 body {
-  background: border-box red;
+  background: border-box brown;
 }
 .main-container {
   border: 0.5rem outset pink;
@@ -17,4 +17,65 @@ body {
   padding: 1rem;
   color: white;
   border-top-left-radius: 15px;
+  border-radius: 1em / 5em;
+}
+.additional-container-2 {
+  background: gold;
+  border: dotted;
+  border-radius: 13em / 3em;
+}
+p.visible {
+  overflow: visible;
+}
+
+p.hidden {
+  overflow: hidden;
+}
+
+p.clip {
+  overflow: clip;
+  overflow-clip-margin: 1em;
+}
+
+p.scroll {
+  overflow: scroll;
+}
+
+p.auto {
+  overflow: auto;
+}
+
+p.overlay {
+  overflow: overlay;
+}
+.card {
+  transition:
+    opacity 10s,
+    display 10s;
+  background-color: orange;
+
+  transition-behavior: allow-discrete;
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.card.hidden {
+  display: none;
+  opacity: 0;
+}
+
+div {
+  background-color: yellow;
+  font-weight: bold;
+  font-size: 130%;
+}
+.light {
+  opacity: 0.2; /* Barely see the text over the background */
+}
+.medium {
+  opacity: 0.5; /* See the text more clearly over the background */
+}
+.heavy {
+  opacity: 0.9; /* See the text very clearly over the background */
 }
