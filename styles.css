@@ -31,3 +31,13 @@ a[href*="contact"] {
 a[href^="https"] {
   border-color: green;
 }
+.test2 {
+  background-color: aqua;
+  width: min(50%, 150px);
+}
+fieldset {
+  background-color: aqua;
+}
+input {
+  background-color: blue;
+}
