@@ -1,43 +1,4 @@
-body {
-  font: 1.2em / 1.5 sans-serif;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 0.5em;
-}
-
-a {
-  display: block;
-  padding: 0.5em;
-}
-
-a {
-  border: 5px solid grey;
-}
-
-/* Add styles here */
-a[title] {
-  border-color: pink;
-}
-a[href*="contact"] {
-  border-color: orange;
-}
-a[href^="https"] {
-  border-color: green;
-}
-.test2 {
-  background-color: aqua;
-  width: min(50%, 150px);
-}
-fieldset {
-  background-color: aqua;
-}
-input {
-  background-color: blue;
+select,
+::picker(select) {
+  appearance: base-select;
 }

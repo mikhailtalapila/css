@@ -7,35 +7,41 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <ul>
-      <li><a href="https://example.com">Link 1</a></li>
-      <li><a href="http://example.com" title="Visit example.com">Link 2</a></li>
-      <li><a href="/contact">Link 3</a></li>
-      <li><a href="../contact/index.html">Link 4</a></li>
-      <li><div class="test2">test 2</div></li>
-      <li><input type="password" /></li>
-    </ul>
-    <fieldset>
-      <legend>Names</legend>
-      <label for="first_name">First Name</label>
-      <input type="text" id="first_name" name="first_name" />
-      <label for="last_name">Last Name</label>
-      <input type="text" id="last_name" name="last_name" />
-    </fieldset>
-    <fieldset>
-      <legend>What would you like to drink?</legend>
-      <label for="coffee">Coffee</label>
-      <input type="radio" id="coffee" name="coffee" />
-      <input type="text" id="comment" name="comment" value="I'm a text field" />
-      <label for="tea">Tea2</label>
-      <input type="radio" id="tea" name="tea" />
-    </fieldset>
-    <button type="submit">submit</button>
+    <form>
+      <p>
+        <label for="pet-select">Select pet:</label>
+        <select id="pet-select">
+          <button>
+            <selectedcontent></selectedcontent>
+          </button>
 
-    <form id="example-form">
-      <input type="range" id="b" name="b" value="50" /> +
-      <input type="number" id="a" name="a" value="10" /> =
-      <output name="result" for="a b">60</output>
+          <option value="">Please select a pet</option>
+          <option value="cat">
+            <span class="icon" aria-hidden="true">🐱</span>
+            <span class="option-label">Cat</span>
+          </option>
+          <option value="dog">
+            <span class="icon" aria-hidden="true">🐶</span>
+            <span class="option-label">Dog</span>
+          </option>
+          <option value="hamster">
+            <span class="icon" aria-hidden="true">🐹</span>
+            <span class="option-label">Hamster</span>
+          </option>
+          <option value="chicken">
+            <span class="icon" aria-hidden="true">🐔</span>
+            <span class="option-label">Chicken</span>
+          </option>
+          <option value="fish">
+            <span class="icon" aria-hidden="true">🐟</span>
+            <span class="option-label">Fish</span>
+          </option>
+          <option value="snake">
+            <span class="icon" aria-hidden="true">🐍</span>
+            <span class="option-label">Snake</span>
+          </option>
+        </select>
+      </p>
     </form>
     <script>
       const form = document.getElementById("example-form");
