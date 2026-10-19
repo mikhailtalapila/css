@@ -1,63 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <form>
-      <p>
-        <label for="pet-select">Select pet:</label>
-        <select id="pet-select">
-          <button>
-            <selectedcontent></selectedcontent>
-          </button>
-
-          <option value="">Please select a pet</option>
-          <option value="cat">
-            <span class="icon" aria-hidden="true">🐱</span>
-            <span class="option-label">Cat</span>
-          </option>
-          <option value="dog">
-            <span class="icon" aria-hidden="true">🐶</span>
-            <span class="option-label">Dog</span>
-          </option>
-          <option value="hamster">
-            <span class="icon" aria-hidden="true">🐹</span>
-            <span class="option-label">Hamster</span>
-          </option>
-          <option value="chicken">
-            <span class="icon" aria-hidden="true">🐔</span>
-            <span class="option-label">Chicken</span>
-          </option>
-          <option value="fish">
-            <span class="icon" aria-hidden="true">🐟</span>
-            <span class="option-label">Fish</span>
-          </option>
-          <option value="snake">
-            <span class="icon" aria-hidden="true">🐍</span>
-            <span class="option-label">Snake</span>
-          </option>
-        </select>
-      </p>
-    </form>
-    <script>
-      const form = document.getElementById("example-form");
-      const a = form.elements["a"];
-      const b = form.elements["b"];
-      const result = form.elements["result"];
-
-      function updateResult() {
-        const aValue = a.valueAsNumber;
-        const bValue = b.valueAsNumber;
-        result.value = aValue + bValue;
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Favorite fruit start</title>
+    <style>
+      input:invalid {
+        border: 2px dashed red;
       }
 
-      form.addEventListener("input", updateResult);
+      input:invalid:required {
+        background-image: linear-gradient(to right, pink, lightgreen);
+      }
 
-      updateResult();
-    </script>
+      input:valid {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <label for="choose">Would you prefer a banana or a cherry? *</label>
+      <input id="choose" name="i-like" required pattern="[Bb]anana|[Cc]herry" />
+      <button>Submit</button>
+    </form>
   </body>
 </html>
