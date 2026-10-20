@@ -1,103 +1,33 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Favorite fruit start</title>
-    <style>
-      body {
-        font: 1em sans-serif;
-        width: 200px;
-        padding: 0;
-        margin: 0 auto;
-      }
-
-      p * {
-        display: block;
-      }
-
-      input[type="email"] {
-        appearance: none;
-
-        width: 100%;
-        border: 1px solid #333333;
-        margin: 0;
-
-        font-family: inherit;
-        font-size: 90%;
-
-        box-sizing: border-box;
-      }
-
-      /* invalid fields */
-      input:invalid {
-        border-color: #990000;
-        background-color: #ffdddd;
-      }
-
-      input:focus:invalid {
-        outline: none;
-      }
-
-      /* error message styles */
-      .error {
-        width: 100%;
-        padding: 0;
-
-        font-size: 80%;
-        color: white;
-        background-color: #990000;
-        border-radius: 0 0 5px 5px;
-
-        box-sizing: border-box;
-      }
-
-      .error.active {
-        padding: 0.3em;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <title>Speaker Submission</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
-    <form novalidate>
-      <p>
-        <label for="mail">
-          <span>Please enter an email address *:</span>
-          <input type="email" id="mail" name="mail" required minlength="8" />
-          <span class="error" aria-live="polite"></span>
-        </label>
-      </p>
-      <button>Submit</button>
-    </form>
-    <script>
-      const form = document.querySelector("form");
-      const email = document.getElementById("mail");
-      const emailError = document.querySelector("#mail+span.error");
-      email.addEventListener("input", (event) => {
-        if (email.validity.valid) {
-          emailError.textContent = "";
-          emailError.className = "error";
-        } else {
-          showError();
-        }
-      });
-      form.addEventListener("submit", (event) => {
-        if (!email.validity.valid) {
-          showError();
-          event.preventDefault();
-        }
-      });
-      function showError() {
-        if (email.validity.valueMissing) {
-          emailError.textContent = "You need to enter an email address";
-        } else if (email.validity.typeMismatch) {
-          emailError.text = "Entered value needs to be an email address";
-        } else if (email.validity.tooShort) {
-          emailError.textContent = `email should be at least 
-          ${email.minLength} characters; you entered ${email.value.length}`;
-        }
-        emailError.className = "error active";
-      }
-    </script>
+    Result Skip Results Iframe EDIT ON auto-fill
+    <div class="grid-container grid-container--fill">
+      <div class="grid-element">1</div>
+      <div class="grid-element">2</div>
+      <div class="grid-element">3</div>
+      <div class="grid-element">4</div>
+      <div class="grid-element">5</div>
+      <div class="grid-element">6</div>
+      <div class="grid-element">7</div>
+    </div>
+
+    <hr />
+
+    auto-fit
+    <div class="grid-container grid-container--fit">
+      <div class="grid-element">1</div>
+      <div class="grid-element">2</div>
+      <div class="grid-element">3</div>
+      <div class="grid-element">4</div>
+      <div class="grid-element">5</div>
+      <div class="grid-element">6</div>
+      <div class="grid-element">7</div>
+    </div>
   </body>
 </html>

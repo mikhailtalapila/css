@@ -1,23 +1,26 @@
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-}
-input,
-textarea,
-select,
-button {
-  width: 150px;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-input:required {
-  border: 2px solid;
+.grid-container {
+  display: grid;
 }
 
-input:optional {
-  border: 2px dashed;
+.grid-container--fill {
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.grid-container--fit {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.grid-element {
+  background-color: deepPink;
+  padding: 20px;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+body {
+  padding: 2em;
+}
+
+hr {
+  margin: 80px;
 }
