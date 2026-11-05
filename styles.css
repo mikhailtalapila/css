@@ -1,134 +1,17 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
 .container {
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  column-gap: 4px;
-  color: white;
-  row-gap: 4px;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 10px;
+}
+
+.child {
+  display: grid;
+  align-items: center;
+  background: blue;
+  min-height: 100px;
+  padding: 15px;
 }
 
 .container div {
-  padding: 12px;
   text-align: center;
-}
-
-.header {
-  background-color: #393f49;
-  display: grid;
-  grid-column: 1/3;
-  grid-template-columns: 1fr 2fr;
-}
-
-.logo {
-  justify-self: start;
-}
-
-.menu ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.menu ul,
-.nav ul {
-  list-style-type: none;
-  text-transform: uppercase;
-}
-
-.sidebar {
-  display: grid;
-  grid-row: 2/4;
-  gap: 50px;
-}
-.nav {
-  display: grid;
-  background-color: #c50208;
-}
-
-.nav ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.sidebar {
-  background-color: #c50208;
-}
-
-.sidebar .photo {
-  background-color: white;
-  color: black;
-  font-size: 12px;
-  font-weight: normal;
-  border-radius: 10px;
-}
-
-.sidebar .side-content {
-  background-color: white;
-  color: black;
-  font-size: 16px;
-  font-weight: normal;
-}
-
-.nav {
-  background-color: #c50208;
-}
-
-.nav ul li {
-  text-transform: uppercase;
-}
-
-.article {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
-
-.article .card {
-  height: 200px;
-}
-
-.card p {
-  padding: 5px;
-}
-.article {
-  background-color: #bccbde;
-}
-
-.article p {
-  font-size: 18px;
-  font-family: sans-serif;
-  color: white;
-  text-align: left;
-}
-
-.article .card {
-  background-color: #ffffff;
-  color: black;
-  text-align: center;
-}
-
-.card p {
-  color: black;
-  font-weight: normal;
-  font-size: 14px;
-}
-
-.card .title {
-  font-size: 18px;
-  text-align: center;
-}
-.footer {
-  display: grid;
-  grid-column: 1/3;
-}
-.footer {
-  background-color: #393f4d;
-}
-
-.footer p {
-  font-size: 13px;
-  font-weight: normal;
 }
