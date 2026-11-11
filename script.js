@@ -1,4 +1,7 @@
 function Player(name, marker) {
+  if (!new.target) {
+    throw Error("You must use new operator to call this");
+  }
   this.name = name;
   this.marker = marker;
   this.sayName = function () {
@@ -6,23 +9,33 @@ function Player(name, marker) {
   };
 }
 
-Player.prototype.sayHello = function () {
-  console.log("hello , i'm a player");
-};
+const player1 = new Player("mike", "x");
+const player2 = new Player("steve", "o");
+player1.sayName();
+player2.sayName();
 
-const player1 = new Player("Mike", "x");
-console.log(player1.name);
-
-player1.sayHello();
-
-function Car(make, model) {
-  this.make = make;
-  this.model = model;
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+  this.info = function () {
+    return `${this.title} by ${this.author} with ${this.pages} pages is ${read ? "read" : "not read"}`;
+  };
 }
 
-const audi = new Car("Audi", "S3");
-Car.prototype.drive = function () {
-  console.log("zoom - zoom");
+const theHobbit = new Book("The Hobbit", "JRR Tolkien", 295, false);
+console.log(theHobbit.info());
+
+console.log(Object.getPrototypeOf(player1));
+
+console.log(Player.prototype);
+
+console.log(Object.getPrototypeOf(player2) === Player.prototype);
+
+Player.prototype.sayHi = function () {
+  console.log(`${this.name} says Hi`);
 };
 
-audi.drive();
+player1.sayHi();
+player2.sayHi();
