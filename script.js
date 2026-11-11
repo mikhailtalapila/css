@@ -7,13 +7,24 @@ function Player(name, marker) {
   this.marker = marker;
 }
 
-Person.prototype.sayHello = function () {
-  console.log(`Hello from ${this.name}`);
+Person.prototype.sayName = function () {
+  console.log(`hello my name is ${this.name}`);
 };
 
-Player.prototype.getMarker = function () {
-  console.log(`My marker is ${this.marker}`);
-};
-const player1 = new Player("mike", "x");
-const player2 = new Player("steve", "o");
 Object.setPrototypeOf(Player.prototype, Person.prototype);
+
+function Enemy(name) {
+  this.name = name;
+}
+
+Enemy.prototype.sayName = function () {
+  console.log(`hahahaha`);
+};
+
+Object.setPrototypeOf(Enemy.prototype, Person.prototype);
+
+const carl = new Player("carl", "x");
+carl.sayName();
+
+const carlEnemy = new Enemy("CARL");
+carlEnemy.sayName();
