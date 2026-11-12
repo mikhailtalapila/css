@@ -1,30 +1,34 @@
-function Person(name) {
+function Hero(name, level) {
   this.name = name;
+  this.level = level;
 }
 
-function Player(name, marker) {
-  this.name = name;
-  this.marker = marker;
+let hero1 = new Hero("Oliver", 2);
+
+function Warrior(name, level, weapon) {
+  Hero.call(this, name, level);
+  this.weapon = weapon;
 }
 
-Person.prototype.sayName = function () {
-  console.log(`hello my name is ${this.name}`);
+function Healer(name, level, spell) {
+  Hero.call(this, name, level);
+  this.spell = spell;
+}
+
+Object.setPrototypeOf(Warrior.prototype, Hero.prototype);
+Object.setPrototypeOf(Healer.prototype, Hero.prototype);
+
+Hero.prototype.greet = function () {
+  return `${this.name} says hello.`;
 };
 
-Object.setPrototypeOf(Player.prototype, Person.prototype);
-
-function Enemy(name) {
-  this.name = name;
-}
-
-Enemy.prototype.sayName = function () {
-  console.log(`hahahaha`);
+Warrior.prototype.attack = function () {
+  return `${this.name} attacks with his ${this.weapon}`;
 };
 
-Object.setPrototypeOf(Enemy.prototype, Person.prototype);
+Healer.prototype.heal = function () {
+  return `${this.name} heals with his ${this.spell}`;
+};
 
-const carl = new Player("carl", "x");
-carl.sayName();
-
-const carlEnemy = new Enemy("CARL");
-carlEnemy.sayName();
+let healer1 = new Healer("Dr Jon", 1, "Abracadabra");
+let warrior1 = new Warrior("Fighter", 3, "sword");
