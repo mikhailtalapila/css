@@ -1,34 +1,14 @@
-function Hero(name, level) {
-  this.name = name;
-  this.level = level;
-}
-
-let hero1 = new Hero("Oliver", 2);
-
-function Warrior(name, level, weapon) {
-  Hero.call(this, name, level);
-  this.weapon = weapon;
-}
-
-function Healer(name, level, spell) {
-  Hero.call(this, name, level);
-  this.spell = spell;
-}
-
-Object.setPrototypeOf(Warrior.prototype, Hero.prototype);
-Object.setPrototypeOf(Healer.prototype, Hero.prototype);
-
-Hero.prototype.greet = function () {
-  return `${this.name} says hello.`;
+let animal = {
+  jumps: null,
 };
 
-Warrior.prototype.attack = function () {
-  return `${this.name} attacks with his ${this.weapon}`;
+let rabbit = {
+  __proto__: animal,
+  jumps: true,
 };
 
-Healer.prototype.heal = function () {
-  return `${this.name} heals with his ${this.spell}`;
-};
-
-let healer1 = new Healer("Dr Jon", 1, "Abracadabra");
-let warrior1 = new Warrior("Fighter", 3, "sword");
+alert(rabbit.jumps);
+delete rabbit.jumps;
+alert(rabbit.jumps);
+delete animal.jumps;
+alert(animal.jumps);
