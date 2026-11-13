@@ -1,68 +1,102 @@
-function show() {
-  "use strict";
-  console.log(this === undefined);
-  function display() {
-    console.log(this === undefined);
-  }
-  display();
-}
-show();
-
-let car = {
-  brand: "Honda",
-  getBrand: function () {
-    return this.brand;
-  },
-};
-
-let bike = {
-  brand: "Harley",
-};
-
-let brand = car.getBrand.bind(bike);
-console.log(brand());
-
-function Car(brand) {
-  if (!new.target) {
-    throw Error("must use the new operator to call the function");
-  }
-  this.brand = brand;
+const myLibrary = [];
+function Book(title, author, pages, read) {
+  this.id = crypto.randomUUID();
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
 }
 
-Car.prototype.getBrand = function () {
-  return this.brand;
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
 };
 
-let merc = new Car("Merc");
-console.log(merc.getBrand());
+let myBook = new Book("test", "mikhail", 12, true);
 
-function getBrandName(prefix) {
-  console.log(prefix + " " + this.brand);
+function addBookToLibrary(title, author, pages, read) {
+  const newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+  displayBooks();
 }
 
-let bmw = {
-  brand: "bmw",
-};
-let audi = {
-  brand: "audi",
-};
+function displayBooks() {
+  const bookContainer = document.getElementById("book-container");
 
-getBrandName.call(bmw, "It's a ");
-getBrandName.call(audi, "It's an ");
+  bookContainer.innerHTML = "";
+  myLibrary.forEach((book) => {
+    const bookCard = document.createElement("div");
+    bookCard.classList.add("book-card");
+    bookCard.dataset.id = book.id;
 
-getBrandName.apply(bmw, ["it's a "]);
-getBrandName.apply(audi, ["it's an "]);
+    const title = document.createElement("h2");
+    title.textContent = book.title;
 
-let getThis = () => this;
-console.log(getThis() === window);
+    const author = document.createElement("p");
+    author.textContent = book.author;
 
-function Kar() {
-  this.speed = 120;
+    const pages = document.createElement("p");
+    pages.textContent = book.pages;
+
+    const read = document.createElement("p");
+    read.textContent = book.read ? "is read" : "is not read";
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add("toggle-read");
+    toggleButton.textContent = book.read ? "Mark as not read" : "Mark as read";
+    toggleButton.addEventListener("click", function () {
+      book.toggleRead();
+      displayBooks();
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("remove-book");
+    removeButton.textContent = "Remove book";
+
+    removeButton.addEventListener("click", function () {
+      const index = myLibrary.findIndex((item) => item.id === book.id);
+      if (index !== -1) {
+        myLibrary.splice(index, 1);
+      }
+      displayBooks();
+    });
+
+    bookCard.appendChild(title);
+    bookCard.appendChild(author);
+    bookCard.appendChild(pages);
+    bookCard.appendChild(read);
+    bookCard.appendChild(toggleButton);
+    bookCard.appendChild(removeButton);
+
+    bookContainer.appendChild(bookCard);
+  });
 }
 
-Kar.prototype.getSpeed = () => {
-  return this.speed;
-};
+const newBookButton = document.getElementById("new-book-btn");
+const bookDialog = document.getElementById("book-dialog");
+const bookForm = document.getElementById("book-form");
+const cancelButton = document.getElementById("cancel-btn");
 
-let c = new Kar();
-console.log(c.getSpeed()); //this causes an issue as arrow function doesn't have it's own exec. context
+newBookButton.addEventListener("click", function () {
+  bookDialog.showModal();
+});
+
+cancelButton.addEventListener("click", function () {
+  bookDialog.close();
+  bookForm.reset();
+});
+
+bookForm.addEventListener("submit", function () {
+  event.preventDefault();
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read").value;
+
+  addBookToLibrary(title, author, pages, read);
+  bookForm.reset();
+  bookDialog.close();
+});
+
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
+addBookToLibrary("1984", "George Orwell", 328, false);
+addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, true);
